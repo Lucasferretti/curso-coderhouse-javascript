@@ -1,27 +1,20 @@
-function calculoIMC(){
-    const peso = parseInt(prompt('Informe o seu peso: '))
-    const altura = prompt('Informe a sua altura (Exemplo 1.70): ')
-    const calculo = (peso / (altura * altura))
 
-    if(calculo <= 18.5){
-        alert("A classificação do seu IMC é: Magreza")
-        console.log(calculo)
-    } else if(calculo >= 18.5 && calculo <= 24.9){
-        alert("A classificação do seu IMC é: Normal")
-        console.log(calculo)
-    }else if(calculo >= 25.0 && calculo <= 29.9){
-        alert("A classificação do seu IMC é: Sobrepeso")
-        console.log(calculo)
-    }else if(calculo >= 30.0 && calculo <= 39.9){
-        alert("A classificação do seu IMC é: Obesidade")
-        console.log(calculo)
-    }else if(calculo >= 40){
-        alert("A classificação do seu IMC é: Obesidade grave")
-        console.log(calculo)
-    }else {
-    alert("Você digitou um número invalido.")
-    console.log(calculo)
-    }
+const calculoICM = (preco) =>{
+    const icms = 0.20
+    let resultado = (preco * icms)
+    return resultado
 }
 
-calculoIMC()
+const precoInserido = () =>{
+    const preco =parseFloat(prompt('Informe o preço do produto que você quer comprar: '))
+    const calculo = calculoICM(preco)
+    let informativo = `O preço do seu produto é R$: ${preco} e o ICMS pago sobre ele é de R$: ${calculo}`
+    return informativo
+}
+
+const precoFinal = () =>{
+    const total = precoInserido()
+    alert(total)
+}
+
+precoFinal()
